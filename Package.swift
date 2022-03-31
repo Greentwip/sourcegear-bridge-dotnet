@@ -3,6 +3,7 @@
 import PackageDescription
 let package = Package(
     name : "sourcegear-bridge-dotnet",
+	platforms: [.macOS(.v12)],
     products : [
         .library(
             name : "dotnet",
@@ -27,6 +28,12 @@ let package = Package(
             dependencies : [
                 .target(name: "jumptable_dotnet"),
             ],
+			swiftSettings: [
+				.unsafeFlags([
+					"-Xfrontend", "-enable-experimental-concurrency",
+					"-Xfrontend", "-disable-availability-checking",
+				])
+			],
             path: "Sources/dotnet"
             ),
     ]
