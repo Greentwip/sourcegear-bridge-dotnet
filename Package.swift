@@ -28,13 +28,13 @@ let package = Package(
             dependencies : [
                 .target(name: "jumptable_dotnet"),
             ],
+			path: "Sources/dotnet",
 			swiftSettings: [
 				.unsafeFlags([
 					"-Xfrontend", "-enable-experimental-concurrency",
 					"-Xfrontend", "-disable-availability-checking",
 				])
-			],
-            path: "Sources/dotnet"
+			]
             ),
     ]
 )
